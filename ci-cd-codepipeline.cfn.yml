@@ -252,7 +252,7 @@ Resources:
           PolicyDocument:
             Version: 2012-10-17
             Statement:
-              - Resource: !Sub arn:aws:iam::$486966108313:role/testrole
+              - Resource: !Sub arn:aws:iam::$486966108313:user/TedJones
                 Effect: Allow
                 Action:
                   - sts:AssumeRole
@@ -323,7 +323,7 @@ Resources:
           - Name: EKS_CLUSTER_NAME
             Value: !Ref EksClusterName
           - Name: EKS_KUBECTL_ROLE_ARN
-            Value: !Sub arn:aws:iam::$486966108313:role/testrole
+            Value: !Sub arn:aws:iam::$486966108313:user/TedJones
         PrivilegedMode: true
       Name: !Ref AWS::StackName
       ServiceRole: !GetAtt CodeBuildServiceRole.Arn
