@@ -184,7 +184,7 @@ Resources:
           PolicyDocument:
             Version: 2012-10-17
             Statement:
-              - Resource: !Sub arn:aws:iam::${AWS::AccountId}:role/${KubectlRoleName}
+              - Resource: !Sub arn:aws:iam::$486966108313:role/testrole
                 Effect: Allow
                 Action:
                   - iam:GetRole
@@ -252,7 +252,7 @@ Resources:
           PolicyDocument:
             Version: 2012-10-17
             Statement:
-              - Resource: !Sub arn:aws:iam::${AWS::AccountId}:role/${KubectlRoleName}
+              - Resource: !Sub arn:aws:iam::$486966108313:role/testrole
                 Effect: Allow
                 Action:
                   - sts:AssumeRole
@@ -323,7 +323,7 @@ Resources:
           - Name: EKS_CLUSTER_NAME
             Value: !Ref EksClusterName
           - Name: EKS_KUBECTL_ROLE_ARN
-            Value: !Sub arn:aws:iam::${AWS::AccountId}:role/${KubectlRoleName}
+            Value: !Sub arn:aws:iam::$486966108313:role/testrole
         PrivilegedMode: true
       Name: !Ref AWS::StackName
       ServiceRole: !GetAtt CodeBuildServiceRole.Arn
