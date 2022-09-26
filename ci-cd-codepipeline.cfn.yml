@@ -184,7 +184,7 @@ Resources:
           PolicyDocument:
             Version: 2012-10-17
             Statement:
-              - Resource: !Sub arn:aws:iam::$486966108313:role/testrole
+              - Resource: !Sub arn:aws:iam::$486966108313:role/UdacityFlaskDeployCBKubectlRole
                 Effect: Allow
                 Action:
                   - iam:GetRole
