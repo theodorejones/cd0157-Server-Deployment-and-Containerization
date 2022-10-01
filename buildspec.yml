@@ -47,7 +47,7 @@ phases:
       - docker push $REPOSITORY_URI:$TAG
       - echo $EKS_CLUSTER_NAME
       - echo $EKS_KUBECTL_ROLE_ARN
-      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --role-arn arn:aws:iam::486966108313:role/UdacityStack-CodeBuildServiceRole-1XM08DO8GVR5J
+      - aws eks update-kubeconfig --name arn:aws:iam::486966108313:role/UdacityStack-CodeBuildServiceRole-1XM08DO8GVR5J
       - aws sts get-caller-identity
       - kubectl version
       - kubectl config current-context
