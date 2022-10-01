@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: simple-jwt-api
-          image: CONTAINER_IMAGE
+          image: nginx:1.23.1-alpine
           securityContext:
             privileged: false
             readOnlyRootFilesystem: false
