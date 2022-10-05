@@ -42,15 +42,13 @@ phases:
     commands:
       - docker build --tag $REPOSITORY_URI:$TAG .
 
-post_build:
+  post_build:
     commands:
       - docker push $REPOSITORY_URI:$TAG
-      - aws eks update-kubeconfig --name simple-jwt-api --role-arn arn:aws:iam::486966108313:role/UdacityStack-CodeBuildServiceRole-1XM08DO8GVR5J
-      - aws sts get-caller-identity
-      - kubectl version
-      - kubectl config current-context
-      - kubectl get pods -n kube-system
-      - kubectl apply -f simple_jwt_api.yml
+      #- aws eks update-kubeconfig --name simple-jwt-api --role-arn arn:aws:iam::486966108313:role/UdacityStack-CodeBuildServiceRole-1XM08DO8GVR5J
+      #- aws sts get-caller-identity
+      #- kubectl version
+      #- kubectl config current-context
       # - printf '[{"name":"simple-jwt-api","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
       - echo "Setting Environment Variables related to AWS CLI for Kube Config Setup"          
       - CREDENTIALS=$(aws sts assume-role --role-arn arn:aws:iam::486966108313:role/UdacityStack-CodeBuildServiceRole-1XM08DO8GVR5J --role-session-name codebuild-kubectl --duration-seconds 900)
@@ -69,6 +67,7 @@ post_build:
       - cat /root/.kube/config
       # - aws eks update-kubeconfig --name eks-limited-ip --role-arn arn:aws:iam::633594862776:role/codebuild-test-service-role
       - kubectl get pods
+      - kubectl apply -f simple_jwt_api.yml
 artifacts:
   files: build.json
 env:
