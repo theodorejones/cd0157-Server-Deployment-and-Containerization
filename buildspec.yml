@@ -63,7 +63,7 @@ phases:
       # - kubectl version
       - kubectl version --short --client
       - aws --version
-      - aws eks update-kubeconfig --name smple-jwt-api --region us-east-2
+      - aws eks update-kubeconfig --name simple-jwt-api --region us-east-2
       - cat /root/.kube/config
       # - aws eks update-kubeconfig --name eks-limited-ip --role-arn arn:aws:iam::633594862776:role/codebuild-test-service-role
       - kubectl get pods
